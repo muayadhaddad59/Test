@@ -25,7 +25,7 @@ pipeline{
         stage("Run Hello world"){
             steps{
                 echo "Running Hello World app.."
-                sh 'npm start'
+                sh 'node index.js'
             }
         }
     }
