@@ -34,7 +34,8 @@ pipeline{
             echo "========always========"
         }
         success{
-            echo "========pipeline executed successfully ========"
+            mail to: "muayadhaddad653@gmail.com"
+            subject: "Hello mr.muayad"
         }
         failure{
             mail to: "muayadhaddad653@gmail.com"
