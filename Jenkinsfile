@@ -1,32 +1,44 @@
 pipeline{
-    agent any 
-
+    agent any
     stages{
-        stage("Check out"){
+        stage("Checkout"){
             steps{
-                echo "==== Ececuting A======"
+                echo "========executing A========"
                 checkout scm
             }
         }
 
         stage("Install"){
             steps{
-                echo "INstalling dependancies"
+                echo "INstalling dependanceies..."
                 sh 'npm install'
             }
         }
 
         stage("Build"){
             steps{
-                echo "Building the project"
+                echo "Building the project.."
+                // Here you cann add build steps if needed
             }
         }
 
-        stage("Run Hello World"){
+        stage("Run Hello world"){
             steps{
-                echo "Running Hello world App"
-                sh "node index.js"
+                echo "Running Hello World app.."
+                sh 'node index.js'
             }
+        }
+    }
+    post{
+        always{
+            echo "========always========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            mail to: "muayadhaddad653@gmail.com"
+            subject: "Hello mr.muayad"
         }
     }
 }
