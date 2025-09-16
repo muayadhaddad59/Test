@@ -35,8 +35,8 @@ pipeline{
         }
         success{
         mail to: 'team@example.com',
-             subject: "Build failed in Jenkins: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-             body: "Check the logs at ${env.BUILD_URL}"
+             subject: "Build Success in Jenkins: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+             body: "Thank you"
     }
     failure {
         mail to: 'team@example.com',
