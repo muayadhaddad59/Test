@@ -34,12 +34,14 @@ pipeline{
             echo "========always========"
         }
         success{
-            mail to: "muayadhaddad653@gmail.com"
-            subject: "Hello mr.muayad"
-        }
-        failure{
-            mail to: "muayadhaddad653@gmail.com"
-            subject: "Hello mr.muayad"
-        }
+        mail to: 'team@example.com',
+             subject: "Build failed in Jenkins: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+             body: "Check the logs at ${env.BUILD_URL}"
+    }
+    failure {
+        mail to: 'team@example.com',
+             subject: "Build failed in Jenkins: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+             body: "Check the logs at ${env.BUILD_URL}"
+    }
     }
 }
